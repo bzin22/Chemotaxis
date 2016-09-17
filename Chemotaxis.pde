@@ -4,7 +4,7 @@ Bacteria [] colony;
  void setup()   
  {     
  	size(1000,1000);//initialize bacteria variables here   
- 	
+ 	background(0);
  	colony = new Bacteria[50];
  	for(int i = 0; i < colony.length; i++)
  	{
@@ -28,6 +28,7 @@ Bacteria [] colony;
  {     
  	int myX, myY, myZ, myZY, myZ1, myZ2;
  	int myIXone, myIYone, myIXtwo, myIYtwo, myIXthree, myIYthree;
+ 	int myNXone, myNYone, myNXtwo, myNYtwo, myNXthree, myNYthree;
  	Bacteria() //lots of java! 
  	{
  		myX = 100; // x coord for z top horizontal
@@ -43,6 +44,13 @@ Bacteria [] colony;
  		myIYtwo = 100;
  		myIXthree = 350;
  		myIYthree = 300;
+
+ 		myNXone = 500;
+ 		myNYone = 100;
+ 		myNXtwo = 500;
+ 		myNYtwo = 100;
+ 		myNXthree = 700;
+ 		myNYthree = 100;
  	}  
  	void show()
  	{
@@ -54,6 +62,10 @@ Bacteria [] colony;
  		ellipse(myIXone, myIYone, 10, 10); // top horizontal for I
  		ellipse(myIXtwo, myIYtwo, 10, 10); // middle line for I
  		ellipse(myIXthree, myIYthree, 10, 10); // bottom horizontal for I
+
+ 		ellipse(myNXone, myNYone, 10, 10); // left vertical for N
+ 		ellipse(myNXtwo, myNYtwo, 10, 10); // diagonal for N
+ 		ellipse(myNXthree, myNYthree, 10, 10); // right vertical for N
  	}
  	void move()
  	{
@@ -66,6 +78,10 @@ Bacteria [] colony;
  		myIYtwo = myIYtwo + (int)(Math.random()*20);
  		myIXthree = myIXthree + (int)(Math.random()*20);
 
+ 		myNYone = myNYone + (int)(Math.random()*20);
+ 		myNXtwo = myNXtwo + (int)(Math.random()*1)+1;
+ 		myNYtwo = myNYtwo + (int)(Math.random()*1)+1;
+ 		myNYthree = myNYthree + (int)(Math.random()*20);
  		// Letter Z
  		if (myX >=300)
  		{
@@ -102,6 +118,27 @@ Bacteria [] colony;
  		if (myIXthree >= 450)
  		{
  			myIXthree = 350;
+ 		}
+
+ 		// letter n
+ 		if (myNYone >= 300)
+ 		{
+ 			myNYone = 100;
+ 		}
+
+ 		if (myNXtwo >= 700)
+ 		{
+ 			myNXtwo = 500;
+ 		}
+
+ 		if (myNYtwo >= 300)
+ 		{
+ 			myNYtwo = 100;
+ 		}
+
+ 		if (myNYthree >= 300)
+ 		{
+ 			myNYthree = 100;
  		}
  	}
  }    
