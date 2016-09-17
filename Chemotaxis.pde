@@ -1,11 +1,18 @@
- //declare bacteria variables here   
+ // AP Computer Science 
+ // Bryan Zin - Block 4 - Mr.Simon
 
 Bacteria [] colony;
+/*
+BacteriaTwo [] albert;
+int x = 0, y = 0;
+boolean click = false;
+*/
  void setup()   
  {     
  	size(1000,1000);//initialize bacteria variables here   
  	background(0);
  	colony = new Bacteria[50];
+ 	
  	for(int i = 0; i < colony.length; i++)
  	{
  		colony[i] = new Bacteria();
@@ -21,15 +28,47 @@ Bacteria [] colony;
  		colony[i].move();
  		colony[i].show();
  	}
- }  
- 
+ } 
+ /*
+ void mouseClicked()
+ {
+ 	click = !click;
+ } 
+ void keyPressed()
+ {
+ 	for (int a = 0; a < albert.length; a++)
+ 	{
+ 		albert[a].move();
+ 		albert[a].show();
+ 	}
+ }
+class BacteriaTwo
+{
+	int yourX, yourY;
 
+	BacteriaTwo()
+	{
+		yourX = x;
+		yourY = y;
+	}
+	void show()
+	{
+		stroke(0, 255, 0);
+		ellipse(yourX, yourY, 10, 10);
+	}
+	void move()
+	{
+
+	}
+}
+*/
  class Bacteria    
  {     
  	int myX, myY, myZ, myZY, myZ1, myZ2;
  	int myIXone, myIYone, myIXtwo, myIYtwo, myIXthree, myIYthree;
  	int myNXone, myNYone, myNXtwo, myNYtwo, myNXthree, myNYthree;
- 	Bacteria() //lots of java! 
+ 	
+ 	Bacteria() 
  	{
  		myX = 100; // x coord for z top horizontal
  		myY = 100; // y coord for z top horizontal
@@ -120,7 +159,7 @@ Bacteria [] colony;
  			myIXthree = 350;
  		}
 
- 		// letter n
+ 		// letter N
  		if (myNYone >= 300)
  		{
  			myNYone = 100;
