@@ -1,13 +1,107 @@
  //declare bacteria variables here   
+
+Bacteria [] colony;
  void setup()   
  {     
- 	//initialize bacteria variables here   
+ 	size(1000,1000);//initialize bacteria variables here   
+ 	
+ 	colony = new Bacteria[50];
+ 	for(int i = 0; i < colony.length; i++)
+ 	{
+ 		colony[i] = new Bacteria();
+ 	}
  }   
  void draw()   
  {    
- 	//move and show the bacteria   
+ 	//move and show the bacteria 
+ 	
+ 	
+ 	for(int i = 0; i < colony.length; i++)
+ 	{
+ 		colony[i].move();
+ 		colony[i].show();
+ 	}
  }  
+ 
+
  class Bacteria    
  {     
- 	//lots of java!   
+ 	int myX, myY, myZ, myZY, myZ1, myZ2;
+ 	int myIXone, myIYone, myIXtwo, myIYtwo, myIXthree, myIYthree;
+ 	Bacteria() //lots of java! 
+ 	{
+ 		myX = 100; // x coord for z top horizontal
+ 		myY = 100; // y coord for z top horizontal
+ 		myZ = 300; // x coord for Z diagonal
+ 		myZY = 100; // y coord for Z diagonal 
+ 		myZ1 = 100; // x coord for Z bottom horizontal
+ 		myZ2 = 300; // y coord for z bottom horizonal
+
+ 		myIXone = 350;
+ 		myIYone = 100;
+ 		myIXtwo = 400;
+ 		myIYtwo = 100;
+ 		myIXthree = 350;
+ 		myIYthree = 300;
+ 	}  
+ 	void show()
+ 	{
+ 		stroke(255,0,0);
+ 		ellipse(myX, myY, 10, 10); // top horizontal for Z
+ 		ellipse(myZ, myZY, 10, 10); // diagonal for Z
+ 		ellipse(myZ1, myZ2, 10, 10); // bottom horizontal for Z
+
+ 		ellipse(myIXone, myIYone, 10, 10); // top horizontal for I
+ 		ellipse(myIXtwo, myIYtwo, 10, 10); // middle line for I
+ 		ellipse(myIXthree, myIYthree, 10, 10); // bottom horizontal for I
+ 	}
+ 	void move()
+ 	{
+ 		myX = myX + (int)(Math.random()*20);
+ 		myZ = myZ - (int)(Math.random()*1)-1;
+ 		myZY = myZY + (int)(Math.random()*1)+1;
+ 		myZ1 = myZ1 + (int)(Math.random()*20);
+
+ 		myIXone = myIXone + (int)(Math.random()*20);
+ 		myIYtwo = myIYtwo + (int)(Math.random()*20);
+ 		myIXthree = myIXthree + (int)(Math.random()*20);
+
+ 		// Letter Z
+ 		if (myX >=300)
+ 		{
+ 			myX = 100;
+ 		}
+
+ 		if (myZ <= 100)
+ 		{
+ 			myZ = 300;
+ 		}
+
+ 		if (myZY >= 300)
+ 		{
+ 			myZY = 100;
+ 		}
+
+ 		if (myZ1 >= 300)
+ 		{
+ 			myZ1 = 100;
+ 		}
+
+
+ 		// Letter I 
+ 		if (myIXone >= 450)
+ 		{
+ 			myIXone = 350;
+ 		}
+
+ 		if (myIYtwo >= 300)
+ 		{
+ 			myIYtwo = 100;
+ 		}
+
+ 		if (myIXthree >= 450)
+ 		{
+ 			myIXthree = 350;
+ 		}
+ 	}
  }    
