@@ -70,8 +70,8 @@ Bacteria [] colony;
  	void move()
  	{
  		myX = myX + (int)(Math.random()*20);
- 		myZ = myZ - (int)(Math.random()*1)-1;
- 		myZY = myZY + (int)(Math.random()*1)+1;
+ 		myZ = myZ - (int)(Math.random()*1)-5;
+ 		myZY = myZY + (int)(Math.random()*1)+5;
  		myZ1 = myZ1 + (int)(Math.random()*20);
 
  		myIXone = myIXone + (int)(Math.random()*20);
@@ -79,8 +79,8 @@ Bacteria [] colony;
  		myIXthree = myIXthree + (int)(Math.random()*20);
 
  		myNYone = myNYone + (int)(Math.random()*20);
- 		myNXtwo = myNXtwo + (int)(Math.random()*1)+1;
- 		myNYtwo = myNYtwo + (int)(Math.random()*1)+1;
+ 		myNXtwo = myNXtwo + (int)(Math.random()*1)+5;
+ 		myNYtwo = myNYtwo + (int)(Math.random()*1)+5;
  		myNYthree = myNYthree + (int)(Math.random()*20);
  		// Letter Z
  		if (myX >=300)
