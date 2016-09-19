@@ -2,6 +2,7 @@
  // Bryan Zin - Block 4 - Mr.Simon
 
 Bacteria [] colony;
+boolean isClicked;
 /*
 BacteriaTwo [] albert;
 int x = 0, y = 0;
@@ -28,6 +29,12 @@ boolean click = false;
  		colony[i].move();
  		colony[i].show();
  	}
+ }
+
+ void mouseDragged()
+ {
+ 	count = 0;
+ 	boolean isClicked = false;
  } 
  /*
  void mouseClicked()
@@ -180,4 +187,4 @@ class BacteriaTwo
  			myNYthree = 100;
  		}
  	}
- }    
+ } 
