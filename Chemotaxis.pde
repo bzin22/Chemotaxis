@@ -2,7 +2,7 @@
  // Bryan Zin - Block 4 - Mr.Simon
 
 Bacteria [] colony;
-boolean isClicked;
+Thingy carl;
 /*
 BacteriaTwo [] albert;
 int x = 0, y = 0;
@@ -23,19 +23,33 @@ boolean click = false;
  {    
  	//move and show the bacteria 
  	
- 	
  	for(int i = 0; i < colony.length; i++)
  	{
  		colony[i].move();
  		colony[i].show();
  	}
  }
-
- void mouseDragged()
+void mouseDragged()
+{
+	carl = new Thingy();
+ 	carl.show();
+}
+ class Thingy
  {
- 	count = 0;
- 	boolean isClicked = false;
- } 
+ 	int myX, myY;
+ 	Thingy()
+ 	{
+ 		myX = mouseX;
+ 		myY = mouseY;
+ 	}
+ 	void show()
+ 	{
+ 		fill(0,255,255);
+ 		ellipse(myX, myY, 10, 10);
+ 	}
+ 	
+ }
+
  /*
  void mouseClicked()
  {
@@ -52,7 +66,6 @@ boolean click = false;
 class BacteriaTwo
 {
 	int yourX, yourY;
-
 	BacteriaTwo()
 	{
 		yourX = x;
@@ -65,7 +78,6 @@ class BacteriaTwo
 	}
 	void move()
 	{
-
 	}
 }
 */
@@ -115,19 +127,19 @@ class BacteriaTwo
  	}
  	void move()
  	{
- 		myX = myX + (int)(Math.random()*20);
+ 		myX = myX + (int)(Math.random()*7);
  		myZ = myZ - (int)(Math.random()*1)-5;
  		myZY = myZY + (int)(Math.random()*1)+5;
- 		myZ1 = myZ1 + (int)(Math.random()*20);
+ 		myZ1 = myZ1 + (int)(Math.random()*7);
 
- 		myIXone = myIXone + (int)(Math.random()*20);
- 		myIYtwo = myIYtwo + (int)(Math.random()*20);
- 		myIXthree = myIXthree + (int)(Math.random()*20);
+ 		myIXone = myIXone + (int)(Math.random()*7);
+ 		myIYtwo = myIYtwo + (int)(Math.random()*7);
+ 		myIXthree = myIXthree + (int)(Math.random()*7);
 
- 		myNYone = myNYone + (int)(Math.random()*20);
+ 		myNYone = myNYone + (int)(Math.random()*7);
  		myNXtwo = myNXtwo + (int)(Math.random()*1)+5;
  		myNYtwo = myNYtwo + (int)(Math.random()*1)+5;
- 		myNYthree = myNYthree + (int)(Math.random()*20);
+ 		myNYthree = myNYthree + (int)(Math.random()*7);
  		// Letter Z
  		if (myX >=300)
  		{
