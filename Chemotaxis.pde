@@ -5,15 +5,15 @@ Bacteria [] colony;
 Thingy carl;
 int r, g, b;
 
-/*
-BacteriaTwo [] albert;
-int x = 0, y = 0;
-boolean click = false;
-*/
+
  void setup()   
  {     
  	size(1000,1000);//initialize bacteria variables here   
  	background(0);
+ 	textSize(36);
+ 	text("This is my name! Show me yours!", 100, 50);
+ 	text("Choose your color!", 100, 360);
+ 	text("Hit 'r' for red, 'g' for green, and 'b' for blue!!", 100, 395);
  	colony = new Bacteria[50];
  	r = 255;
 	g = 255;
@@ -81,37 +81,7 @@ void keyPressed()
  	
  }
 
- /*
- void mouseClicked()
- {
- 	click = !click;
- } 
- void keyPressed()
- {
- 	for (int a = 0; a < albert.length; a++)
- 	{
- 		albert[a].move();
- 		albert[a].show();
- 	}
- }
-class BacteriaTwo
-{
-	int yourX, yourY;
-	BacteriaTwo()
-	{
-		yourX = x;
-		yourY = y;
-	}
-	void show()
-	{
-		stroke(0, 255, 0);
-		ellipse(yourX, yourY, 10, 10);
-	}
-	void move()
-	{
-	}
-}
-*/
+ 
  class Bacteria    
  {     
  	int myX, myY, myZ, myZY, myZ1, myZ2;
