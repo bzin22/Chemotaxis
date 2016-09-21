@@ -3,6 +3,8 @@
 
 Bacteria [] colony;
 Thingy carl;
+int r, g, b;
+
 /*
 BacteriaTwo [] albert;
 int x = 0, y = 0;
@@ -13,7 +15,9 @@ boolean click = false;
  	size(1000,1000);//initialize bacteria variables here   
  	background(0);
  	colony = new Bacteria[50];
- 	
+ 	r = 255;
+	g = 255;
+	b = 255;
  	for(int i = 0; i < colony.length; i++)
  	{
  		colony[i] = new Bacteria();
@@ -31,8 +35,35 @@ boolean click = false;
  }
 void mouseDragged()
 {
-	carl = new Thingy();
- 	carl.show();
+	 carl = new Thingy(); 
+	 carl.show();
+}
+void keyPressed()
+{
+
+	if (key == 'r') 
+	{
+		r = 255;
+		g= 0;
+		b = 0;	
+	}
+	else if (key == 'g') 
+	{
+		r= 0;
+		g= 255;
+		b= 0;
+	}
+	else if (key == 'b')
+	{
+		r = 0;
+		g = 0;
+		b = 255;
+	}
+
+	if (key == 'c') 
+	{
+		background(0);
+	}
 }
  class Thingy
  {
@@ -44,7 +75,7 @@ void mouseDragged()
  	}
  	void show()
  	{
- 		fill(0,255,255);
+ 		fill(r,g,b);
  		ellipse(myX, myY, 10, 10);
  	}
  	
