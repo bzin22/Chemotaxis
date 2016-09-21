@@ -1,35 +1,27 @@
-// AP Computer Science 
+ // AP Computer Science 
  // Bryan Zin - Block 4 - Mr.Simon
 
 Bacteria [] colony;
-CoolEffects [] star;
+Thingy carl;
 /*
-boolean isClicked = false;
-int countX, countY;
+BacteriaTwo [] albert;
+int x = 0, y = 0;
+boolean click = false;
 */
-void setup()   
+ void setup()   
  {     
- 	size(800,500);//initialize bacteria variables here   
+ 	size(1000,1000);//initialize bacteria variables here   
  	background(0);
  	colony = new Bacteria[50];
- 	star = new CoolEffects[5];
+ 	
  	for(int i = 0; i < colony.length; i++)
  	{
  		colony[i] = new Bacteria();
- 	}
- 	for (int j = 0; j < star.length; j++) 
- 	{
- 		star[j] = new CoolEffects();	
  	}
  }   
  void draw()   
  {    
  	//move and show the bacteria 
- 	for (int j = 0; j < star.length; j++)
- 	{
- 		star[j].move();
- 		star[j].show();	
- 	}
  	
  	for(int i = 0; i < colony.length; i++)
  	{
@@ -37,74 +29,58 @@ void setup()
  		colony[i].show();
  	}
  }
-/*
- void mouseDragged()
- {
- 	boolean isClicked = true;
- 	countX = countX + mouseX;
- 	countY = countY + mouseY;
- 	stroke(0,255,0);
- 	ellipse(countX, countY, 10, 10);
-
- } 
-*/
-
-class CoolEffects
+void mouseDragged()
 {
-	int theX, theY, theA, theB;
+	carl = new Thingy();
+ 	carl.show();
+}
+ class Thingy
+ {
+ 	int myX, myY;
+ 	Thingy()
+ 	{
+ 		myX = mouseX;
+ 		myY = mouseY;
+ 	}
+ 	void show()
+ 	{
+ 		fill(0,255,255);
+ 		ellipse(myX, myY, 10, 10);
+ 	}
+ 	
+ }
 
-	CoolEffects()
+ /*
+ void mouseClicked()
+ {
+ 	click = !click;
+ } 
+ void keyPressed()
+ {
+ 	for (int a = 0; a < albert.length; a++)
+ 	{
+ 		albert[a].move();
+ 		albert[a].show();
+ 	}
+ }
+class BacteriaTwo
+{
+	int yourX, yourY;
+	BacteriaTwo()
 	{
-		theX = 150;
-		theY = 400; 
-		theA = 200;
-		theB = 350;
+		yourX = x;
+		yourY = y;
 	}
 	void show()
 	{
-		stroke(0,255,0);
-		ellipse(theX, theY, 5, 5);
-		ellipse(theA, theB, 5, 5);
+		stroke(0, 255, 0);
+		ellipse(yourX, yourY, 10, 10);
 	}
 	void move()
 	{
-		theX = theX + 1;
-		theY = theY - 1;
-
-		theA = theA + 1;
-		theB = theB +1;
-		
-		if (theY <= 350) 
-		{
-			if (theX >= 200) 
-			{
-				
-				while (theY <= 400 || theX <= 250)
-				{
-					theY = theY + ((int)(Math.random()*1)+1);
-					theX = theX + (int)(Math.random()*1)+1;
-				}
-			}
-		}
-
-
-
-		if (theB >= 400) 
-		{
-			if (theA >= 250) 
-			{
-				
-				while (theB >= 400 || theA >= 300)
-				{
-					theB = theB + ((int)(Math.random()*1)+1);
-					theA = theA + (int)(Math.random()*1)+1;
-				}
-			}
-		}
-		
 	}
 }
-
+*/
  class Bacteria    
  {     
  	int myX, myY, myZ, myZY, myZ1, myZ2;
@@ -151,89 +127,76 @@ class CoolEffects
  	}
  	void move()
  	{
- 		myX = myX + (int)(Math.random()*20);
+ 		myX = myX + (int)(Math.random()*7);
  		myZ = myZ - (int)(Math.random()*1)-5;
  		myZY = myZY + (int)(Math.random()*1)+5;
- 		myZ1 = myZ1 + (int)(Math.random()*20);
+ 		myZ1 = myZ1 + (int)(Math.random()*7);
 
- 		myIXone = myIXone + (int)(Math.random()*20);
- 		myIYtwo = myIYtwo + (int)(Math.random()*20);
- 		myIXthree = myIXthree + (int)(Math.random()*20);
+ 		myIXone = myIXone + (int)(Math.random()*7);
+ 		myIYtwo = myIYtwo + (int)(Math.random()*7);
+ 		myIXthree = myIXthree + (int)(Math.random()*7);
 
- 		myNYone = myNYone + (int)(Math.random()*20);
+ 		myNYone = myNYone + (int)(Math.random()*7);
  		myNXtwo = myNXtwo + (int)(Math.random()*1)+5;
  		myNYtwo = myNYtwo + (int)(Math.random()*1)+5;
- 		myNYthree = myNYthree + (int)(Math.random()*20);
+ 		myNYthree = myNYthree + (int)(Math.random()*7);
  		// Letter Z
+ 		if (myX >=300)
+ 		{
+ 			myX = 100;
+ 		}
 
- 		/*if(isClicked == false)
- 		{*/
+ 		if (myZ <= 100)
+ 		{
+ 			myZ = 300;
+ 		}
 
-	 		if (myX >=300)
-	 		{
-	 			myX = 100;
-	 		}
+ 		if (myZY >= 300)
+ 		{
+ 			myZY = 100;
+ 		}
 
-	 		if (myZ <= 100)
-	 		{
-	 			myZ = 300;
-	 		}
-
-	 		if (myZY >= 300)
-	 		{
-	 			myZY = 100;
-	 		}
-
-	 		if (myZ1 >= 300)
-	 		{
-	 			myZ1 = 100;
-	 		}
+ 		if (myZ1 >= 300)
+ 		{
+ 			myZ1 = 100;
+ 		}
 
 
-	 		// Letter I 
-	 		if (myIXone >= 450)
-	 		{
-	 			myIXone = 350;
-	 		}
+ 		// Letter I 
+ 		if (myIXone >= 450)
+ 		{
+ 			myIXone = 350;
+ 		}
 
-	 		if (myIYtwo >= 300)
-	 		{
-	 			myIYtwo = 100;
-	 		}
+ 		if (myIYtwo >= 300)
+ 		{
+ 			myIYtwo = 100;
+ 		}
 
-	 		if (myIXthree >= 450)
-	 		{
-	 			myIXthree = 350;
-	 		}
+ 		if (myIXthree >= 450)
+ 		{
+ 			myIXthree = 350;
+ 		}
 
-	 		// letter N
-	 		if (myNYone >= 300)
-	 		{
-	 			myNYone = 100;
-	 		}
+ 		// letter N
+ 		if (myNYone >= 300)
+ 		{
+ 			myNYone = 100;
+ 		}
 
-	 		if (myNXtwo >= 700)
-	 		{
-	 			myNXtwo = 500;
-	 		}
+ 		if (myNXtwo >= 700)
+ 		{
+ 			myNXtwo = 500;
+ 		}
 
-	 		if (myNYtwo >= 300)
-	 		{
-	 			myNYtwo = 100;
-	 		}
+ 		if (myNYtwo >= 300)
+ 		{
+ 			myNYtwo = 100;
+ 		}
 
-	 		if (myNYthree >= 300)
-	 		{
-	 			myNYthree = 100;
-	 		}
-	 	/* 
-	 	}
-	 	else 
-	 	{
-	 		myX = countX;
-	 		myY = countY;
-	 		
-	 	}
-	 	*/
+ 		if (myNYthree >= 300)
+ 		{
+ 			myNYthree = 100;
+ 		}
  	}
- } 
+}
