@@ -14,8 +14,10 @@ int r, g, b;
  	text("This is my name! Show me yours!", 100, 50);
  	text("Choose your color!", 100, 360);
  	text("Hit 'r' for red, 'g' for green, and 'b' for blue!!", 100, 395);
+
  	textSize(14);
  	text("For best results, draw with slow, smooth strokes using your mouse.", 100, 420);
+
  	colony = new Bacteria[50];
  	r = 255;
 	g = 255;
@@ -203,4 +205,3 @@ void keyPressed()
  		}
  	}
 }
-
