@@ -3,17 +3,23 @@
 
 Bacteria [] colony;
 Thingy carl;
-/*
-BacteriaTwo [] albert;
-int x = 0, y = 0;
-boolean click = false;
-*/
+int r, g, b;
+
+
  void setup()   
  {     
  	size(1000,1000);//initialize bacteria variables here   
  	background(0);
+ 	textSize(36);
+ 	text("This is my name! Show me yours!", 100, 50);
+ 	text("Choose your color!", 100, 360);
+ 	text("Hit 'r' for red, 'g' for green, and 'b' for blue!!", 100, 395);
+ 	textSize(14);
+ 	text("For best results, draw with slow, smooth strokes using your mouse.", 100, 420);
  	colony = new Bacteria[50];
- 	
+ 	r = 255;
+	g = 255;
+	b = 255;
  	for(int i = 0; i < colony.length; i++)
  	{
  		colony[i] = new Bacteria();
@@ -31,8 +37,35 @@ boolean click = false;
  }
 void mouseDragged()
 {
-	carl = new Thingy();
- 	carl.show();
+	 carl = new Thingy(); 
+	 carl.show();
+}
+void keyPressed()
+{
+
+	if (key == 'r') 
+	{
+		r = 255;
+		g= 0;
+		b = 0;	
+	}
+	else if (key == 'g') 
+	{
+		r= 0;
+		g= 255;
+		b= 0;
+	}
+	else if (key == 'b')
+	{
+		r = 0;
+		g = 0;
+		b = 255;
+	}
+
+	if (key == 'c') 
+	{
+		background(0);
+	}
 }
  class Thingy
  {
@@ -44,43 +77,13 @@ void mouseDragged()
  	}
  	void show()
  	{
- 		fill(0,255,255);
+ 		fill(r,g,b);
  		ellipse(myX, myY, 10, 10);
  	}
  	
  }
 
- /*
- void mouseClicked()
- {
- 	click = !click;
- } 
- void keyPressed()
- {
- 	for (int a = 0; a < albert.length; a++)
- 	{
- 		albert[a].move();
- 		albert[a].show();
- 	}
- }
-class BacteriaTwo
-{
-	int yourX, yourY;
-	BacteriaTwo()
-	{
-		yourX = x;
-		yourY = y;
-	}
-	void show()
-	{
-		stroke(0, 255, 0);
-		ellipse(yourX, yourY, 10, 10);
-	}
-	void move()
-	{
-	}
-}
-*/
+ 
  class Bacteria    
  {     
  	int myX, myY, myZ, myZY, myZ1, myZ2;
@@ -200,3 +203,4 @@ class BacteriaTwo
  		}
  	}
 }
+
